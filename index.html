@@ -1,0 +1,405 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Queen’s School of Computing Student Page: A CISC 121 Homework</title>
+    <meta name="description" content="A 20‑minute hands-on lab: launch your own Queen’s School of Computing student webpage using GitHub Pages, then complete a peer review." />
+    <style>
+      :root {
+        --queens-red: #b90e31;
+        --queens-gold: #fabd0f;
+        --queens-blue: #002452;
+        --text-light: #ffffff;
+        --text-dark: #1a1a1a;
+      }
+      body { margin: 0; font-family: system-ui, sans-serif; line-height: 1.6; background: var(--queens-red); color: var(--text-light); }
+      .gold-bar { height: 10px; background: var(--queens-gold); }
+      header { background: var(--queens-blue); padding: 1rem; display: flex; justify-content: space-between; align-items: center; color: var(--text-light); }
+      header h1 { margin: 0; font-size: 1.5rem; }
+      .hero { background: var(--queens-red); text-align: center; padding: 3rem 1rem; }
+      .hero h2 { font-size: 2rem; margin-bottom: .5rem; }
+      .hero p { max-width: 60ch; margin: 0 auto; }
+      main { background: #fff; color: var(--text-dark); padding: 2rem; max-width: 980px; margin: 2rem auto; border-radius: 12px; }
+      section { margin-bottom: 2rem; }
+      section h3 { color: var(--queens-blue); margin-bottom:.25rem; }
+      .time { font-size:.9rem; color:#475569; }
+      details { margin-top: .5rem; }
+      details summary { cursor: pointer; color: var(--queens-red); font-weight:600; }
+      code { font-family: ui-monospace, Consolas, monospace; }
+      pre { background: #f3f4f6; border: 1px solid #ddd; border-radius: 6px; padding: .8rem; overflow: auto; max-width: 100%; }
+      pre code { white-space: pre; display:block; }
+      /* Color for comments inside code samples */
+      pre code .hl-comment {
+        color: var(--queens-red);   /* or use a darker red: #7a0f12 */
+        font-style: italic;
+      }
+      footer { text-align: center; background: var(--queens-blue); color: var(--text-light); padding: 1.5rem; }
+      .callout { background:#fff7ed; border:1px solid #fed7aa; padding:.8rem; border-radius:8px; }
+      .checklist { list-style: none; padding-left:0; }
+      .checklist li { margin:.25rem 0; }
+      .card { border:1px solid #e5e7eb; border-radius:10px; padding:1rem; background:#fafafa; }
+    </style>
+  </head>
+  <body>
+    <div class="gold-bar"></div>
+    <header>
+      <h1>Queen’s School of Computing: A CISC 121 Homework</h1>
+      <span>Student Webpage Tutorial + Peer Review</span>
+    </header>
+
+    <div class="hero">
+      <h2>Launch your own site in 20 minutes</h2>
+      <p>This tutorial guides you — no coding experience required — to create and deploy a personal Queen’s Computing student webpage and complete a simple peer code review.</p>
+    </div>
+
+    <main>
+      <section>
+        <h3>What to Submit (deliverables on OnQ)</h3>
+        <p class="time">Submit to OnQ once you finish all steps</p>
+        <ul>
+          <li><b>Live URL</b>: link to <b>your</b> deployed site (to check successful launch).</li>
+          <li><b>Repository link</b>: link to <b>your</b> GitHub repo with code.</li>
+          <li><b>Evidence of your review for your partner's website</b>: paste the direct URL of your review on <b>your partner’s</b> repo, as well as two screenshot images of your comments/review. The direct URL can be <b>either</b>:  <ul><li> <b>Pull Request</b> link (e.g. <code>https://github.com/partner-username/queens-student-page/pull/3</code>) if you reviewed via PR</li><li> <b>Issue</b> link (e.g. <code>https://github.com/partner-username/queens-student-page/issues/5</code>) if you used the issue template</li></ul></li>
+          <li><b>Evidence of your implementation for your partner's review of your website</b>: describe what changes <b>your partner</b> recommended, and how <b>you</b> implemented them. </li>
+        </ul>
+        <div class="callout"><b>Reminder:</b> These are required deliverables. This homework counts towards the participation mark and feedback will be provided. Your website must be launched successfully so we can give you meaningful feedback.</div>
+      </section>
+
+      <section>
+        <h3>Step 0: Sign in (or create a GitHub account)</h3>
+        <p class="time">~1–2 minutes</p>
+        <ul>
+          <li>Go to GitHub and sign in. New? Click <b>Sign up</b> and choose the free plan.</li>
+          <li>Confirm your email so Pages can publish later.</li>
+          <li><b>Encouraged:</b> Apply for the <a href="https://education.github.com/pack" target="_blank">GitHub Student Developer Pack</a>. It gives free GitHub Pro and access to GitHub Copilot Chat (AI assistant) for free!</li>
+        </ul>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>No verification email?</b> Check spam or click <em>Resend verification</em>.</li>
+            <li><b>Forgot password?</b> Use <em>Forgot password</em> on the sign‑in page.</li>
+            <li><b>Student Pack rejected?</b> Re‑apply with your Queen’s email and a photo of your student card.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section>
+        <h3>Step 1: Create your repository</h3>
+        <p class="time">~2 minutes</p>
+        <p><i>Explainer:</i> A repository (“repo”) is like a special online folder where all the code, images, and history for your project are stored. GitHub keeps track of changes over time, like a timeline.</p>
+        <ol>
+          <li>Click the <b>+</b> in the top bar → <b>New repository</b>.</li>
+          <li>Name it <code>queens‑student‑page</code> and check <b>Add a README</b>.</li>
+          <li>Choose <b>Public</b>, add <b>MIT License</b> → <b>Create repository</b>.</li>
+        </ol>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>Repo name taken?</b> Try <code>queens‑student‑page‑2025</code>.</li>
+            <li><b>Private repo?</b> GitHub Pages works only on Public (unless paid plan).</li>
+          </ul>
+        </details>
+      </section>
+
+      <section>
+        <h3>Step 2: Add your homepage</h3>
+        <p class="time">~4 minutes</p>
+        <p><i>Explainer:</i> <b>HTML</b> is the language of web pages. It uses “tags” like <code>&lt;h1&gt;</code> for headings, <code>&lt;p&gt;</code> for paragraphs, and <code>&lt;img&gt;</code> for images. The browser reads this file top to bottom and displays it as a page.</p>
+        <p>Add a file named <code>index.html</code> at the root (main level) of the repo and paste this starter. The <b>red comments</b> show where to personalize.</p>
+        <pre><code>&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"/&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1"/&gt;
+    &lt;title&gt;My Queen’s Student Page&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"/&gt; &lt;!-- do not change this line --&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;header&gt;
+      &lt;h1&gt;Welcome to My Page&lt;/h1&gt; &lt;!-- change this heading to your name --&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+      &lt;!-- ====== ABOUT SECTION (edit the text) ====== --&gt;
+      &lt;h2&gt;About Me&lt;/h2&gt;
+      &lt;p&gt;I am a student at Queen’s School of Computing. I’m interested in &lt;!-- replace with interests --&gt;.&lt;/p&gt;
+
+      &lt;!-- ====== PHOTO (upload me.jpg to repo root, then update the src below) ====== --&gt;
+      &lt;img src="me.jpg" alt="Your Name portrait" width="240" height="240" /&gt;
+
+      &lt;!-- ====== PROJECTS/COURSES (add or rename items to courses instead of projects) ====== --&gt;
+      &lt;h2&gt;Projects&lt;/h2&gt;
+      &lt;ul&gt;
+        &lt;li&gt;Project One — one sentence description.&lt;/li&gt;
+        &lt;li&gt;Project Two — coming soon.&lt;/li&gt;
+      &lt;/ul&gt;
+
+      &lt;!-- ====== CONTACT (update your links) ====== --&gt;
+      &lt;h2&gt;Contact&lt;/h2&gt;
+      &lt;p&gt;Email: &lt;a href="mailto:student@queensu.ca"&gt;student@queensu.ca&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;LinkedIn: &lt;a href="#"&gt;add your link here&lt;/a&gt;&lt;/p&gt;
+    &lt;/main&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>Where to place?</b> The file is at the top level of your repo, not inside a folder.</li>
+            <li><b>Wrong name?</b> Must be exactly <code>index.html</code>.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section>
+        <h3>Step 3: Add Queen’s branding (style.css)</h3>
+        <p class="time">~3 minutes</p>
+        <p><i>Explainer:</i> <b>CSS</b> is the language that styles your HTML. It controls colors, fonts, spacing, and layout. By separating style (CSS) from structure (HTML), it’s easier to update the look without touching the content.</p>
+        <p>Create a file named <code>style.css</code> (at the same level as <code>index.html</code>) and paste:</p>
+        <pre><code>:root {
+  --red:#b90e31; --gold:#fabd0f; --blue:#002452;
+}
+body { font-family: system-ui, sans-serif; margin:0; background:var(--red); color:#fff; }
+header { background:var(--blue); color:#fff; padding:1rem; }
+main { background:#fff; color:#1a1a1a; max-width:900px; margin:2rem auto; border-radius:12px; padding:1.5rem; }
+a { color: var(--blue); }
+/* === personalize below by changing colors or spacing === */
+/* example: make headings blue and a bit larger */
+h2 { color: var(--blue); font-size: 1.6rem; }
+/* example: make your photo round */
+img { border-radius: 12px; }
+</code></pre>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>Not working?</b> Ensure <code>&lt;link rel="stylesheet" href="style.css"&gt;</code> is inside <code>&lt;head&gt;</code> of <code>index.html</code>.</li>
+            <li><b>Colors look off?</b> Double‑check the hex codes.</li>
+            <li><b>Long code lines overflow?</b> Scroll the code block; boxes now scroll horizontally if needed.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section>
+        <h3>Step 4: Enable GitHub Pages</h3>
+        <p class="time">~3 minutes</p>
+        <p><i>Explainer:</i> GitHub Pages is a free hosting service. When you enable it, GitHub takes your <code>index.html</code> and <code>style.css</code> files and serves them on the public web. That’s how your code “lives online” at a real URL.</p>
+        <ol>
+          <li>Go to <b>Settings → Pages</b>.</li>
+          <li>Set <b>Source</b> → <b>Deploy from a branch</b>.</li>
+          <li>Choose Branch <code>main</code>, Folder <code>/root</code> → <b>Save</b>.</li>
+          <li>Wait for the green check, then open the link.</li>
+        </ol>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>404?</b> Wait a minute and refresh.</li>
+            <li><b>No URL?</b> Confirm repo is Public and branch/folder are set.</li>
+          </ul>
+        </details>
+      </section>
+
+      <section>
+        <h3>Step 5: Personalize & publish updates</h3>
+        <p class="time">~6–7 minutes</p>
+        <p><i>Explainer:</i> HTML + CSS together make your website. HTML is the “skeleton” (sections, text, images). CSS is the “skin and clothes” (colors, fonts, layout). Every change you make and commit to GitHub will trigger GitHub Pages to redeploy your live site.</p>
+        <p>You have two options:</p>
+        <ol>
+          <li><b>Manual edits:</b> Open <code>index.html</code>. Use the existing structure and follow these instructions:
+            <ul>
+              <li><b>Change the page title:</b> In the <code>&lt;title&gt;</code> tag inside <code>&lt;head&gt;</code>, replace <code>My Queen’s Student Page</code> with your own name.</li>
+              <li><b>Header with your name:</b> Find <code>&lt;h1&gt;Welcome to My Page&lt;/h1&gt;</code> and replace the text with your name.</li>
+              <li><b>About Me:</b> In <code>&lt;main&gt;</code>, replace the sample paragraph with a few sentences about yourself.</li>
+              <li><b>Add a photo:</b> Upload an image (e.g., <code>me.jpg</code>) to repo root. Then add:
+                <pre><code>&lt;img src="me.jpg" alt="Photo of Your Name" width="240" height="240" /&gt;</code></pre>
+              </li>
+              <li><b>Projects:</b> After About section:
+                <pre><code>&lt;h2&gt;Projects&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;Project One — one sentence description.&lt;/li&gt;
+  &lt;li&gt;Project Two — coming soon.&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+              </li>
+              <li><b>Contact:</b> At bottom of <code>&lt;main&gt;</code>:
+                <pre><code>&lt;h2&gt;Contact&lt;/h2&gt;
+&lt;p&gt;Email: &lt;a href="mailto:student@queensu.ca"&gt;student@queensu.ca&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;LinkedIn: &lt;a href="https://linkedin.com/in/yourprofile"&gt;linkedin.com/in/yourprofile&lt;/a&gt;&lt;/p&gt;</code></pre>
+              </li>
+            </ul>
+          </li>
+          <li><b>With Copilot Chat:</b> After the Student Pack is active, in VS Code ask Copilot to personalize your page, e.g., “Insert my name into the page title and header.”</li>
+        </ol>
+        <details><summary>Tips & fixes</summary>
+          <ul>
+            <li><b>Image not showing?</b> Ensure file is uploaded at repo root and filename matches exactly.</li>
+            <li><b>Broken layout?</b> Keep new sections inside <code>&lt;main&gt;...&lt;/main&gt;</code>.</li>
+            <li><b>Made a mistake? Revert to an earlier version:</b> Go to your repo → <b>Code</b> tab → click the commit count (e.g., "15 commits") → find the working version → click the commit hash → click <b>Browse files</b> → copy the URL. Then go back to <b>Code</b> tab → <b>Add file</b> → <b>Upload files</b> → drag your backup files or use the web editor to manually restore the working content. <i>Alternative:</i> Click the commit hash → click <b>Revert</b> button (if available) → <b>Create revert commit</b>.</li>
+          </ul>
+        </details>
+        <div class="callout"><b>Congrats!</b> You now have a live, customizable student page.</div>
+      </section>
+
+      <section>
+        <h3>Step 6: Pair up & peer review (homework) — full instructions</h3>
+        <p class="time">~20–25 minutes total (10–12 per partner)</p>
+
+        <div class="card">
+          <h4 style="margin-top:0;color:var(--queens-blue)">A) Invite your partner (so they can be assigned as reviewer)</h4>
+          <ol>
+            <li>Open <b>your</b> repo → <b>Settings</b> → <b>Collaborators and teams</b> (sometimes shown as <em>Manage access</em>).</li>
+            <li>Click <b>Add people</b> → type your partner's GitHub username → <b>Add</b>.</li>
+            <li>Your partner must <b>accept the email/in-app invite</b>. (Without accepting, they can still comment, but you can't formally assign them as a reviewer.)</li>
+          </ol>
+          <details><summary>Tips</summary>
+            <ul>
+              <li>Public repos allow comments from anyone; adding as collaborator enables formal <em>Review</em> assignments and suggestion commits.</li>
+              <li>If <em>Collaborators and teams</em> isn't visible, ensure you're the repo owner.</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h4 style="margin-top:0;color:var(--queens-blue)">B) Create a "review Pull Request (PR)" in your repo</h4>
+          <ol>
+            <li>On the <b>Code</b> tab, open the branch dropdown (it says <code>main</code>) → type <code>peer-review-prep</code> → <b>Create branch</b>.</li>
+            <li>Edit a tiny thing in <code>index.html</code> (e.g., add a comment <code>&lt;!-- TODO: improve About text --&gt;</code>) → <b>Commit</b>.</li>
+            <li>Click the yellow banner <b>"Compare &amp; pull request"</b> → title: <code>Peer Review: &lt;Your Name&gt;</code>.</li>
+            <li>In the PR description, paste your live URL + any questions you have for the reviewer.</li>
+            <li>On the right side, under <b>Reviewers</b>, assign your partner (after they accepted the invite).</li>
+          </ol>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h4 style="margin-top:0;color:var(--queens-blue)">C) Partner: conduct the peer review using the Code Review Checklist</h4>
+          <p><b>Goal:</b> Apply the CISC 121 Code Review Checklist to evaluate your partner's webpage for readability, correctness, maintainability, and best practices.</p>
+          
+          <ol>
+            <li>Go to your partner's repo → <b>Pull requests</b> tab → open the PR titled <em>Peer Review: ...</em></li>
+            <li>Open the <b>live URL</b> in a new tab to test functionality.</li>
+            <li>Click <b>Files changed</b> to review the code line-by-line.</li>
+            <li>Use the <b>Code Review Checklist</b> below to guide your review. Leave <b>at least one comment per checklist category</b> (8 total minimum).</li>
+            <li>For each comment, follow <b>SMART feedback principles</b> (see guidelines below).</li>
+            <li>When finished, click <b>Review changes</b> (top-right) → write a summary → choose <b>Comment</b>, <b>Approve</b>, or <b>Request changes</b> → <b>Submit review</b>.</li>
+          </ol>
+
+          <h5 style="color:var(--queens-blue);margin-top:1rem">The Code Review Checklist (from CISC 121)</h5>
+          <table style="width:100%;border-collapse:collapse;margin-top:.5rem">
+            <thead>
+              <tr style="background: var(--queens-blue);color:#fff">
+                <th style="border:1px solid #ddd;padding:.5rem;text-align:left">Checklist Item</th>
+                <th style="border:1px solid #ddd;padding:.5rem;text-align:left">What to Check For</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>1. Functionality</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Does the code work correctly? Test the live site: click all links, verify images load, check for console errors.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>2. Clarity</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Is the code easy to read and understand? Check for meaningful element names, clear headings, no jargon.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>3. Structure</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Is the code organized in small parts (semantic HTML)? Verify proper use of <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, heading hierarchy, etc.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>4. Maintainability</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Is it easy to update later? Ensure styles are in CSS (not inline), repeated patterns use classes, colors use CSS variables.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>5. Performance</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Does the code run efficiently? Check image file sizes, avoid redundant CSS, ensure page loads quickly.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>6. Security</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Does it handle bad inputs safely? Verify no personal phone/address exposed, external links are trustworthy, no inline scripts from unknown sources.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>7. Documentation</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Are the comments useful? Check README explains setup, HTML comments clarify sections, commit messages describe <em>why</em> changes were made.</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #ddd;padding:.5rem"><b>8. Testing</b></td>
+                <td style="border:1px solid #ddd;padding:.5rem">Are edge cases handled? Test on mobile/desktop, try broken image paths, click mailto/external links, verify accessibility (alt text, contrast).</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h5 style="color:var(--queens-blue);margin-top:1.5rem">How to Give SMART Feedback</h5>
+          <p>Every comment you leave should follow the <b>SMART</b> framework from CISC 121:</p>
+          <ul>
+            <li><b>Specific:</b> Point to the exact file, line, or behavior. Say <em>what</em> to change. 
+              <br><em>Example:</em> "In <code>index.html</code> line 23, the <code>&lt;img&gt;</code> tag is missing an <code>alt</code> attribute. Add <code>alt='Photo of [Name]'</code> for accessibility."
+            </li>
+            <li><b>Measurable:</b> Define what "better" means with a concrete check (e.g., test passes, page loads faster, no console errors).
+              <br><em>Example:</em> "Reduce <code>me.jpg</code> from 2MB to under 500KB so the page loads in under 2 seconds on slow connections."
+            </li>
+            <li><b>Achievable:</b> Suggest a realistic fix given the scope and skill level of CISC 121.
+              <br><em>Example:</em> "Replace inline styles with a CSS class. For instance, change <code>&lt;p style='color:blue'&gt;</code> to <code>&lt;p class='highlight'&gt;</code> and define <code>.highlight { color: var(--blue); }</code> in <code>style.css</code>."
+            </li>
+            <li><b>Relevant:</b> Keep feedback aligned with the homework goals (functionality, clarity, structure, etc.). Avoid nitpicks that don't improve the page.
+              <br><em>Example (good):</em> "This heading should be <code>&lt;h2&gt;</code> instead of <code>&lt;h3&gt;</code> to maintain proper hierarchy."
+              <br><em>Example (avoid):</em> "I prefer green over blue" (personal preference, not relevant).
+            </li>
+            <li><b>Time-bound:</b> Indicate priority or timeline. 
+              <br><em>Example:</em> "Fix the broken LinkedIn link before merging this PR" or "Consider adding a footer in a future update."
+            </li>
+          </ul>
+
+          <div class="callout" style="margin-top:1rem">
+            <b>❌ Bad feedback:</b> "Your design is bad."<br>
+            <b>✅ Good feedback:</b> "In <code>style.css</code> line 12, the background color <code>#fff</code> and text color <code>#f0f0f0</code> have low contrast (WCAG fail). Change text to <code>#1a1a1a</code> for readability. Fix before merge."
+          </div>
+
+          <details style="margin-top:1rem"><summary>How to leave comments in GitHub</summary>
+            <ul>
+              <li><b>Line-specific comment:</b> In <b>Files changed</b>, hover over a line → click the blue <b>+</b> → type your SMART feedback → <b>Add review comment</b>.</li>
+              <li><b>Suggest a code change:</b> Click <b>Insert a suggestion</b> button → edit the code block → <b>Add review comment</b>. The author can apply it with one click.</li>
+              <li><b>General comment:</b> Use the <b>Conversation</b> tab for issues that span multiple files (e.g., "All images are missing alt text").</li>
+              <li><b>Attach screenshots:</b> Drag-drop images into the comment box to show visual issues (e.g., layout bug on mobile).</li>
+            </ul>
+          </details>
+        </div>
+
+        <div class="card" style="margin-top:1rem">
+          <h4 style="margin-top:0;color:var(--queens-blue)">D) Author: respond to feedback & apply changes</h4>
+          <ol>
+            <li>Open your PR → read all comments in <b>Conversation</b> and <b>Files changed</b> tabs.</li>
+            <li>For suggestion blocks, click <b>Apply suggestion</b> (or <b>Add suggestion to batch</b>) → <b>Commit</b>.</li>
+            <li>For other feedback, edit the files directly (via web or local) → commit with a descriptive message referencing the feedback (e.g., "Fix alt text per @partner's review").</li>
+            <li>Reply to each comment to acknowledge it or ask clarifying questions.</li>
+            <li>When all critical issues are resolved, click <b>Merge pull request</b> → <b>Confirm</b> → <b>Delete branch</b>. GitHub Pages will redeploy automatically.</li>
+          </ol>
+        </div>
+
+        <h4 style="color:var(--queens-blue);margin-top:1.5rem">E) Quick reference: Review comment examples by checklist item</h4>
+        <details><summary>Expand for example comments</summary>
+          <ul>
+            <li><b>Functionality:</b> "The LinkedIn link in line 34 points to <code>#</code> (nowhere). Update to your actual LinkedIn profile or remove it. Fix before merge."</li>
+            <li><b>Clarity:</b> "In line 18, the heading 'Stuff' is vague. Change to 'My Projects' or 'Coursework' so visitors understand the section. Fix before merge."</li>
+            <li><b>Structure:</b> "Lines 20–25 nest an <code>&lt;h3&gt;</code> directly under <code>&lt;h1&gt;</code> with no <code>&lt;h2&gt;</code>. This breaks heading hierarchy. Change <code>&lt;h3&gt;</code> to <code>&lt;h2&gt;</code>."</li>
+            <li><b>Maintainability:</b> "Line 30 uses inline style <code>style='color:#b90e31'</code>. Move this to <code>style.css</code> as <code>.red-text { color: var(--red); }</code> so future color changes are centralized."</li>
+            <li><b>Performance:</b> "<code>me.jpg</code> is 3.2MB. Compress to under 500KB using TinyPNG or similar. Goal: page load under 2 seconds on 3G. Fix before merge."</li>
+            <li><b>Security:</b> "Line 40 includes your phone number. Remove it unless you intend to make it public. If intentional, acknowledge this comment."</li>
+            <li><b>Documentation:</b> "README is empty. Add a sentence: 'Personal student page for CISC 121. Edit <code>index.html</code> to update content.' Can follow up after merge."</li>
+            <li><b>Testing:</b> "The <code>&lt;img&gt;</code> in line 28 has no <code>alt</code> attribute. Add <code>alt='Portrait of [Your Name]'</code> for screen-reader users. Fix before merge."</li>
+          </ul>
+        </details>
+      </section>
+      
+    </main>
+
+    <footer>
+      © Queen’s University — School of Computing — CISC 121 — Student Page Tutorial. Built with GitHub Pages.
+    </footer>
+
+    <script>
+      (function () {
+        document.querySelectorAll('pre > code').forEach(code => {
+          // Wrap encoded HTML comments like &lt;!-- ... --&gt; with a span for styling
+          code.innerHTML = code.innerHTML.replace(
+            /&lt;!--([\s\S]*?)--&gt;/g,
+            '<span class="hl-comment">&lt;!--$1--&gt;</span>'
+          );
+        });
+      })();
+    </script>
+    
+  </body>
+</html>
